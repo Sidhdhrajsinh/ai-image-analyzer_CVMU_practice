@@ -2,6 +2,10 @@ const express = require('express');
 const cors = require('cors');
 const multer = require('multer');
 const path = require('path');
+const axios = require('axios');
+const fs = require('fs');
+const FormData = require('form-data');
+
 
 const app = express();
 
@@ -23,23 +27,41 @@ const upload = multer({ storage: storage });
 
 
 //Upload route
-app.post('/upload', upload.single('image'), (req, res) => {
+app.post('/upload', upload.single('image'), async(req, res) => {
     try {
         if (!req.file) {
             return res.status(400).json({ message: 'No file uploaded' });
         }
 
-        console.log("File received:", req.file);
+        console.log("File received:", req.file.path);
 
+        //Send image to python
+
+        const formData = newFormData();
+        formData.append('image', fs.createReadStream(req.file.path));
+
+        const pythonResponse = await axios.post(
+            'http://localhost:8000/analyze',
+            formData, {
+                headers: formDate.getHeaders()
+            }
+        );
+
+        console.log("Response from python :", pythonResponse.data);
+
+        //send python response to frontend
         res.status(200).json({
-            message: 'Image uploaded successfully',
-            filePath: req.file.path
+            message: 'Image processed successfully',
+            description: pythonResponse.data.description
         });
+
     } catch (error) {
-        console.error(error);
-        res.status(500).json({ message: 'Server error' });
+        console.error(error.message);
+        res.status(500).json({ message: 'Error processing image' });
     }
 });
+
+
 
 
 //Test route
