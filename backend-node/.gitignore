@@ -27,3 +27,20 @@ build/
 .vscode/
 node_modules/
 frontend/vite-project/node_modules/
+
+
+# Node
+node_modules/
+
+# Python
+venv/
+
+# cache
+__pycache__/
+
+# env
+.env
+
+# build
+dist/
+build/
