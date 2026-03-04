@@ -25,3 +25,5 @@ build/
 
 # VSCode settings
 .vscode/
+node_modules/
+frontend/vite-project/node_modules/

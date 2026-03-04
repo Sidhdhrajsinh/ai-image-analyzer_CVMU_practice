@@ -52,7 +52,7 @@ app.post('/upload', upload.single('image'), async(req, res) => {
         //send python response to frontend
         res.status(200).json({
             message: 'Image processed successfully',
-            description: pythonResponse.data.description
+            description: pythonResponse.data.description || pythonResponse.data.error
         });
 
     } catch (error) {
