@@ -37,13 +37,13 @@ app.post('/upload', upload.single('image'), async(req, res) => {
 
         //Send image to python
 
-        const formData = newFormData();
+        const formData = new FormData();
         formData.append('image', fs.createReadStream(req.file.path));
 
         const pythonResponse = await axios.post(
             'http://localhost:8000/analyze',
             formData, {
-                headers: formDate.getHeaders()
+                headers: formData.getHeaders()
             }
         );
 
