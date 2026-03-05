@@ -1,0 +1,128 @@
+# -------------------------
+
+# Node.js
+
+# -------------------------
+
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+pnpm-lock.yaml
+
+# Frontend node modules
+
+frontend/vite-project/node_modules/
+
+# -------------------------
+
+# Python
+
+# -------------------------
+
+venv/
+.venv/
+env/
+**pycache**/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+*.egg
+dist/
+build/
+
+# -------------------------
+
+# Python Virtual Environment
+
+# -------------------------
+
+python-ai-service/venv/
+
+# -------------------------
+
+# Python Cache
+
+# -------------------------
+
+**/**pycache**/
+
+# -------------------------
+
+# Environment Variables
+
+# -------------------------
+
+.env
+.env.*
+
+# -------------------------
+
+# Logs
+
+# -------------------------
+
+*.log
+
+# -------------------------
+
+# Uploads / Temp files
+
+# -------------------------
+
+uploads/
+temp_uploads/
+backend-node/uploads/
+python-ai-service/temp_uploads/
+
+# -------------------------
+
+# ML / Model Files
+
+# -------------------------
+
+*.pt
+*.pth
+*.onnx
+*.engine
+
+# -------------------------
+
+# Dataset / Training files
+
+# -------------------------
+
+datasets/
+runs/
+
+# -------------------------
+
+# OS Files
+
+# -------------------------
+
+.DS_Store
+Thumbs.db
+
+# -------------------------
+
+# Editor / IDE
+
+# -------------------------
+
+.vscode/
+.idea/
+
+# -------------------------
+
+# Misc
+
+# -------------------------
+
+*.sqlite3
+*.db
+*.zip
+*.tar
+*.gz
